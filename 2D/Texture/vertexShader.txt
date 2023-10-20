@@ -1,0 +1,11 @@
+#version 330 core
+in vec2 in_position;
+in vec2 in_texcoord;  // Added texture coordinates
+out vec2 frag_texcoord;  // Pass texture coordinates to fragment shader
+
+uniform mat4 rotate;
+
+void main() {
+    gl_Position = rotate * vec4(in_position, 0.0, 1.0);
+    frag_texcoord = in_texcoord;
+}

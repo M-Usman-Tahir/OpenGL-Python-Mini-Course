@@ -1,0 +1,12 @@
+#version 330 core
+in vec2 in_position;
+in vec3 in_color;
+out vec3 frag_color;
+uniform mat4 rotate;
+uniform mat4 scale;
+uniform mat4 translate;
+
+void main() {
+    gl_Position = rotate * scale * translate * vec4(in_position, 0.0, 1.0);
+    frag_color = in_color;
+}

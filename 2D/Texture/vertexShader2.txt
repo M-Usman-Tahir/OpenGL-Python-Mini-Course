@@ -1,0 +1,14 @@
+#version 330 core
+in layout(location=0) vec2 in_position;
+in layout(location=1) vec3 in_color;
+in layout(location=2) vec2 in_texcoord;
+out vec2 frag_texcoord;
+out vec3 frag_color;
+
+uniform mat4 rotate;
+
+void main() {
+    gl_Position = rotate * vec4(in_position, 0.0, 1.0);
+    frag_color = in_color;
+    frag_texcoord = in_texcoord;
+}
